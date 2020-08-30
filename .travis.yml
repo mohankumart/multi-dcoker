@@ -21,5 +21,22 @@ after_success:
     - docker push mohankumart/multi-server
     - docker push mohankumart/multi-worker
 
+deploy:
+    provider: elasticbeanstlak
+    region: us-west-1
+    app: multi-docker
+    env: MultiDocker-env
+    bucket_name: elasticbeanstlak-us-west-346tdf
+    bucket_path: docker-multi
+    on:
+        branch: master
+    secret_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SCRET_KEY
+        secure: true
+
+        
+
+
+
 
 
